@@ -1,5 +1,7 @@
 <?php
 
+include('login.php');
+
 function addUzsakymas($adr, $city, $postal, $total, $data, $uzsakov_id) {
     $adr = htmlspecialchars(trim($adr), ENT_QUOTES);
     $city = htmlspecialchars(trim($city), ENT_QUOTES);

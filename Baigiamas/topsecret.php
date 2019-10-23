@@ -33,10 +33,10 @@
                 <a class="top-adm nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" st>PREKĖS</a>
             </li>
             <li class="nav-item">
-                <a class="top-adm nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                <a class="top-adm nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">UŽSAKYMAI</a>
             </li>
             <li class="nav-item">
-                <a class="top-adm nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+                <a class="top-adm nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Užsakovai/Žinutės</a>
             </li>
         </ul>
         <!-- TABU PABAIGA -->
@@ -64,7 +64,7 @@
                         <input type="text" name="prekID" value="" placeholder="Prekės ID duomenų bazėje">
                         <button type="submit">Pridėti</button>
                     </form>
-                    <form class="p-2" action="model/update.foto.php" method="post">
+                    <form class="p-2" action="model/upd.foto.php" method="post">
                         <input type="text" name="fotoID" value="" placeholder="Foto ID duomenų bazėje">
                         <input type="text" name="foto1" value="" placeholder="Pirma prekės nuotrauka">
                         <input type="text" name="foto2" value="" placeholder="Antra prekės nuotrauka">
@@ -80,22 +80,157 @@
                 <!-- PREKIU EDIT PRADZIA -->
                 <section class="pnlis m-2">
                     <h3>Peržiūrėti/koreguoti/trinti prekes</h3>
-                    <form class="p-2" action="/model/prekes.php" method="post">
-                        <!-- <input type="text" name="pozicija" value="" placeholder="Prekės pozicija">
-                        <button type="submit">Pridėti</button> -->
-                        <select name="pasirinkimas" class="listas">
-                            <option selected>Pasirink prekę</option>
-                        <?php   //Listas su prekiu pavadinimais
-                                foreach($prekiuobj as $preke) { ?>
-                                <option value="<?=$preke['id']?>"><?=$preke['pavadinimas']?></option>
-                        <?php   } ?>
-                        </select>
+                        <form class="p-2" action="model/del.preke.php" method="post">
+                            <select name="pasirinkimas" class="listas">
+                                <option selected>Pasirink prekę</option>
+                            <?php   //Listas su prekiu pavadinimais
+                                    foreach($prekiuobj as $preke) { ?>
+                                    <option value="<?=$preke['id']?>"><?=$preke['pavadinimas']?></option>
+                            <?php   } ?>
+                            </select>
+                            <button type="submit">ištrinti</button>
+                        </form>
+                        <form class="p-2" action="model/upd.preke.php" method="post">
+                        <textarea type="text" name="apr" value="" placeholder="Prekės aprašymas" rows="8" cols="100"></textarea><br>
+                            <input type="text" name="prekID" value="" placeholder="Prekės ID duomenų bazėje">
+                            <input type="text" name="pav" value="" placeholder="Prekės pavadinimas">
+                            <input type="text" name="kain" value="" placeholder="Prekės kaina">
+                            <input type="text" name="kiek" value="" placeholder="Prekės kiekis">
+                            <input type="text" name="poz" value="" placeholder="Prekės pozicija">
+                        <button type="submit">Koreguoti</button>
                     </form>
                 </section>
                 <!-- PREKIU EDIT PABAIGA -->
             </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+            <!-- NAUJAS TABAS -->
+            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <!-- UZSAKYMU/DETALIU PRIDEJIMO PRADZIA -->
+                <section class="pnlis m-2">
+                    <h3>Pridėti užsakymą</h3>
+                    <form class="p-2" action="model/create.uzsakymas.php" method="post">
+                        <input type="text" name="adr" value="" placeholder="Gatvė">
+                        <input type="text" name="miest" value="" placeholder="Miestas">
+                        <input type="text" name="postal" value="" placeholder="Pašto kodas">
+                        <input type="text" name="total" value="" placeholder="Bendra užsakymo kaina">
+                        <input type="text" name="data" value="" placeholder="Užsakymo data">
+                        <input type="text" name="uzsakID" value="" placeholder="Užsakovo ID">
+                        <button type="submit" onclick="">Pridėti</button>
+                    </form>
+                    <h3>Pridėti užsakymo detales</h3>
+                    <form class="p-2" action="model/create.uzsakymodetales.php" method="post">
+                        <input type="text" name="uzsakymoID" value="" placeholder="Užsakymo ID">
+                        <input type="text" name="prekesID" value="" placeholder="Prekės ID">
+                        <input type="text" name="vnt" value="" placeholder="Prekės vienetai">
+                        <input type="text" name="spalva" value="" placeholder="Prekės spalva">
+                        <button type="submit" onclick="">Pridėti</button>
+                    </form>
+                </section>
+                <!-- UZSAKYMU/DETALIU PRIDEJIMO PABAIGA - KOREGAVIMO PRADZIA -->
+                <section class="pnlis m-2">
+                    <h3>Koreguoti užsakymą</h3>
+                    <form class="p-2" action="model/upd.uzsakymas.php" method="post">
+                        <input type="text" name="uzsakymoID" value="" placeholder="Užsakymo ID">
+                        <input type="text" name="adr" value="" placeholder="Gatvė">
+                        <input type="text" name="miest" value="" placeholder="Miestas">
+                        <input type="text" name="postal" value="" placeholder="Pašto kodas">
+                        <input type="text" name="total" value="" placeholder="Bendra užsakymo kaina">
+                        <input type="text" name="data" value="" placeholder="Užsakymo data">
+                        <input type="text" name="uzsakID" value="" placeholder="Užsakovo ID">
+                        <button type="submit" onclick="">Koreguoti</button>
+                    </form>
+                    <h3>Koreguoti užsakymo detales</h3>
+                    <form class="p-2" action="model/upd.uzsakymodetales.php" method="post">
+                        <input type="text" name="uzsakymoDetID" value="" placeholder="Užsakymo detalių ID">
+                        <input type="text" name="uzsakymoID" value="" placeholder="Užsakymo ID">
+                        <input type="text" name="prekesID" value="" placeholder="Prekės ID">
+                        <input type="text" name="vnt" value="" placeholder="Prekės vienetai">
+                        <input type="text" name="spalva" value="" placeholder="Prekės spalva">
+                        <button type="submit" onclick="">Koreguoti</button>
+                    </form>
+                </section>
+                <!-- UZSAKYMU KOREGAVIMO PABAIGA-TRYNIMO/PERZIUROS PRADZIA -->
+                <section class="pnlis m-2">
+                    <h3>Peržiūrėti/trinti užsakymą</h3>
+                    <form class="p-2" action="model/del.preke.php" method="post">
+                            <select name="pasirinkimas" class="listas">
+                                <option selected>Pasirink prekę</option>
+                            <?php   //Listas su prekiu pavadinimais
+                                    foreach($prekiuobj as $preke) { ?>
+                                    <option value="<?=$preke['id']?>"><?=$preke['pavadinimas']?></option>
+                            <?php   } ?>
+                            </select>
+                        <button type="submit">ištrinti</button>
+                    </form>
+                    <h3>Peržiūrėti/trinti užsakymo detales</h3>
+                    <form class="p-2" action="model/del.preke.php" method="post">
+                            <select name="pasirinkimas" class="listas">
+                                <option selected>Pasirink prekę</option>
+                            <?php   //Listas su prekiu pavadinimais
+                                    foreach($prekiuobj as $preke) { ?>
+                                    <option value="<?=$preke['id']?>"><?=$preke['pavadinimas']?></option>
+                            <?php   } ?>
+                            </select>
+                        <button type="submit">ištrinti</button>
+                    </form>
+                </section>
+                <!-- UZSAKYMU/DETALIU TRYNIMO/PERZIUROS PABAIGA -->
+            </div>
+            <!-- NAUJAS TABAS -->
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <section class="pnlis m-2">
+                    <h3>Pridėti užsakovą</h3>
+                    <form class="p-2" action="model/create.uzsakovas.php" method="post">
+                        <input type="text" name="vard" value="" placeholder="Vardas">
+                        <input type="text" name="pavard" value="" placeholder="Pavardė">
+                        <input type="text" name="email" value="" placeholder="El.paštas">
+                        <input type="text" name="tel" value="" placeholder="Tel.nr.">
+                        <input type="text" name="adr" value="" placeholder="Gatvė">
+                        <input type="text" name="miestas" value="" placeholder="Miestas">
+                        <input type="text" name="postal" value="" placeholder="Pašto kodas">
+                        <button type="submit" onclick="">Pridėti</button>
+                    </form>
+                </section>
+                <section class="pnlis m-2">
+                    <h3>Koreguoti užsakovą</h3>
+                    <form class="p-2" action="model/upd.uzsakovas.php" method="post">
+                        <input type="text" name="pirkID" value="" placeholder="Užsakovo ID">
+                        <input type="text" name="vard" value="" placeholder="Vardas">
+                        <input type="text" name="pavard" value="" placeholder="Pavardė">
+                        <input type="text" name="email" value="" placeholder="El.paštas">
+                        <input type="text" name="tel" value="" placeholder="Tel.nr.">
+                        <input type="text" name="adr" value="" placeholder="Gatvė">
+                        <input type="text" name="miestas" value="" placeholder="Miestas">
+                        <input type="text" name="postal" value="" placeholder="Pašto kodas">
+                        <button type="submit" onclick="">Koreguoti</button>
+                    </form>
+                </section>
+                <section class="pnlis m-2">
+                    <h3>Peržiūrėti/trinti užsakovą</h3>
+                    <form class="p-2" action="model/del.preke.php" method="post">
+                            <select name="pasirinkimas" class="listas">
+                                <option selected>Pasirink prekę</option>
+                            <?php   //Listas su prekiu pavadinimais
+                                    foreach($prekiuobj as $preke) { ?>
+                                    <option value="<?=$preke['id']?>"><?=$preke['pavadinimas']?></option>
+                            <?php   } ?>
+                            </select>
+                        <button type="submit">ištrinti</button>
+                    </form>
+                </section>
+                <section class="pnlis m-2">
+                    <h3>Peržiūrėti/trinti žinutes</h3>
+                    <form class="p-2" action="model/del.preke.php" method="post">
+                            <select name="pasirinkimas" class="listas">
+                                <option selected>Pasirink prekę</option>
+                            <?php   //Listas su prekiu pavadinimais
+                                    foreach($prekiuobj as $preke) { ?>
+                                    <option value="<?=$preke['id']?>"><?=$preke['pavadinimas']?></option>
+                            <?php   } ?>
+                            </select>
+                        <button type="submit">ištrinti</button>
+                    </form>
+                </section>
+            </div>
         </div> 
     </main>
     <script src="lib/jquery.js"></script>

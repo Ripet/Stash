@@ -1,5 +1,7 @@
 <?php
 
+include('login.php');
+
 function addUzsakDetal($uzsak_id, $prek_id, $vnt, $col) {
     $uzsak_id = htmlspecialchars(trim($uzsak_id), ENT_QUOTES);
     $prek_id = htmlspecialchars(trim($prek_id), ENT_QUOTES);

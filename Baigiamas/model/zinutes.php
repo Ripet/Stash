@@ -1,4 +1,8 @@
-<?php function addZinute($name, $email, $data, $msg) {
+<?php
+
+include('login.php');
+
+function addZinute($name, $email, $data, $msg) {
     $name = htmlspecialchars(trim($name), ENT_QUOTES);
     $email = htmlspecialchars(trim($email), ENT_QUOTES);
     $data = htmlspecialchars(trim($data), ENT_QUOTES);

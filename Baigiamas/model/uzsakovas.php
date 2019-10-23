@@ -1,5 +1,7 @@
 <?php
 
+include('login.php');
+
 function addUzsakovas($name, $lname, $email, $tel, $adr, $city, $postal) {
     $name = htmlspecialchars(trim($name), ENT_QUOTES);
     $lname = htmlspecialchars(trim($lname), ENT_QUOTES);
