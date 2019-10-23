@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel&display=swap');
+
+* {
+    font-family: 'Cinzel', serif;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.logotipas {
+    max-height: 100px;
+    transform: scalex(-1);
+}
+
+.titulinis {
+    color: #ffffff;
+}
+
+.searchas,.loginas,.krepselis {
+    height: 50px;
+}
+
+.social {
+    height: 40px;
+}
+
+.headeris {
+    background-color: #222222;
+}
+
+.footeris {
+    background-color: #222222;
+}
+
+body {
+    background-color: #efefef;
+}
+
+.navigacija {
+    background-color: #444444;
+    color: #fff;
+}
+
+.knopke {
+    background-color: #5d6438;
+    border: 1px solid #444444;
+    padding: 30px;
+}
+
+.apie {
+    text-indent: 30px;
+    text-align: justify;
+}
+
+.apie-img {
+    margin: 20px;
+    height: 300px;
+    width: auto;
+}
+
+.kontaktai {
+    color: #fff;
+}
+
+.trade {
+    color: #fff;
+}
+
+a, a:hover {
+    text-decoration-line: none;
+    color: #fff;
+}
+
+.top-adm, .top-adm:hover {
+    color: black;
+}
+
+.pnlis {
+    border: 1px solid rgb(104, 100, 100);
+}
+
+.listas {
+    width: 50%;
+}
+
+/* H2 pabraukimo pradzia */
+
+.musu {
+    position: relative;
+    padding: 10px;
+}
+
+.musu::after {
+    content: '';
+    height: 3px;
+    width: 10%;
+    background: #5d6438;
+    position: absolute;
+    left: calc(50%-10%);
+    bottom: -5px
+}
+
+/* H2 pabraukimo pabaiga */
+
+/* Animuoto pabraukimo pradzia */
+
+a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+}
+
+a:after {    
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+a:hover:after { 
+    width: 100%; 
+    left: 0; 
+}
+
+@media screen and (max-height: 300px) {
+    ul {
+        margin-top: 40px;
+    }
+}
+
+/* Animuoto pabraukimo pabaiga */
