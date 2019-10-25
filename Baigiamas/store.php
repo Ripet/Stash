@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sėdimųjų rojus</title>
     <meta name="description" content="Geriausios ir pigiausios kėdės">
-    <!-- <link rel="icon" href="/favicon.ico" type="image/x-icon"> -->
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -69,12 +69,6 @@
         <div class="col trade d-flex justify-content-center align-items-end">
             <p>&copy; Nekopyk, 2019, RP</p>
         </div>
-        <!-- <div>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18344.
-            675493131108!2d23.86063170256347!3d54.91899041211447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.
-            1!3m3!1m2!1s0x0%3A0xd0b6ac17341b3187!2sNorfa%20XL!5e0!3m2!1slt!2slt!4v1571631929725!5m2!1slt!2slt" 
-            width="150" height="150" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
-        </div> -->
         <div class="col d-flex justify-content-end align align-items-center">
             <img class="social" src="img/facebook.svg" alt="mūsų facebook">
             <img class="social" src="img/twitter.svg" alt="mūsų twitter">
