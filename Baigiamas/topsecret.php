@@ -18,15 +18,6 @@
         </div>
     </header>
     <main class="row flex-column">
-        <?php
-        
-        include('model/prekes.php');
-        
-        // include('');
-
-        $prekiuobj = getPrekes();
-        
-        ?>
         <!-- TABU PRADZIA -->
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item">
@@ -81,14 +72,20 @@
                 <section class="pnlis m-2">
                     <h3>Peržiūrėti/koreguoti/trinti prekes</h3>
                         <form class="p-2" action="model/del.preke.php" method="post">
-                            <select name="pasirinkimas" class="listas">
+                            <?php
+                            //DROPDOWN LISTUI
+                            include_once('model/prekes.php');
+                            $prekiuobj = getPrekes();
+                            ?>
+                            <select name="pasirinkimas" id="list-prekes" class="listas" onchange="getPrekFromDb()">
                                 <option selected>Pasirink prekę</option>
                             <?php   //Listas su prekiu pavadinimais
                                     foreach($prekiuobj as $preke) { ?>
-                                    <option value="<?=$preke['id']?>"><?=$preke['pavadinimas']?></option>
+                                    <option class="dropdn-value" value="<?=$preke['id']?>"><?=$preke['pavadinimas']?></option>
                             <?php   } ?>
                             </select>
-                            <button type="submit">ištrinti</button>
+                            <button type="submit">Ištrinti</button>
+                            <div id="ats1"></div>
                         </form>
                         <form class="p-2" action="model/upd.preke.php" method="post">
                         <textarea type="text" name="apr" value="" placeholder="Prekės aprašymas" rows="8" cols="100"></textarea><br>
@@ -150,27 +147,22 @@
                 </section>
                 <!-- UZSAKYMU KOREGAVIMO PABAIGA-TRYNIMO/PERZIUROS PRADZIA -->
                 <section class="pnlis m-2">
-                    <h3>Peržiūrėti/trinti užsakymą</h3>
-                    <form class="p-2" action="model/del.preke.php" method="post">
-                            <select name="pasirinkimas" class="listas">
-                                <option selected>Pasirink prekę</option>
-                            <?php   //Listas su prekiu pavadinimais
-                                    foreach($prekiuobj as $preke) { ?>
-                                    <option value="<?=$preke['id']?>"><?=$preke['pavadinimas']?></option>
+                    <h3>Pasirinkt delete</h3>
+                    <form class="p-2" action="model/del.uzsakymas.php" method="post">
+                            <?php
+                            //DROPDOWN LISTUI
+                            include_once('model/uzsakymai.php');
+                            $uzsakymuObj = getUzsakymus();
+                            ?>
+                            <select name="pasirinkimasDu" id="list-uzsakymai" class="listas" onchange="getUzsakymFromDb()">
+                                <option selected>Pasirink užsakymą</option>
+                            <?php   
+                                    foreach($uzsakymuObj as $uzsakym) { ?>
+                                    <option class="dropdn-value" value="<?=$uzsakym['id']?>"><?=$uzsakym['id']?></option>
                             <?php   } ?>
                             </select>
-                        <button type="submit">ištrinti</button>
-                    </form>
-                    <h3>Peržiūrėti/trinti užsakymo detales</h3>
-                    <form class="p-2" action="model/del.preke.php" method="post">
-                            <select name="pasirinkimas" class="listas">
-                                <option selected>Pasirink prekę</option>
-                            <?php   //Listas su prekiu pavadinimais
-                                    foreach($prekiuobj as $preke) { ?>
-                                    <option value="<?=$preke['id']?>"><?=$preke['pavadinimas']?></option>
-                            <?php   } ?>
-                            </select>
-                        <button type="submit">ištrinti</button>
+                            <button type="submit">Ištrinti</button>
+                        <div id="ats2"></div>
                     </form>
                 </section>
                 <!-- UZSAKYMU/DETALIU TRYNIMO/PERZIUROS PABAIGA -->
@@ -206,29 +198,11 @@
                 </section>
                 <section class="pnlis m-2">
                     <h3>Peržiūrėti/trinti užsakovą</h3>
-                    <form class="p-2" action="model/del.preke.php" method="post">
-                            <select name="pasirinkimas" class="listas">
-                                <option selected>Pasirink prekę</option>
-                            <?php   //Listas su prekiu pavadinimais
-                                    foreach($prekiuobj as $preke) { ?>
-                                    <option value="<?=$preke['id']?>"><?=$preke['pavadinimas']?></option>
-                            <?php   } ?>
-                            </select>
-                        <button type="submit">ištrinti</button>
-                    </form>
+                    
                 </section>
                 <section class="pnlis m-2">
                     <h3>Peržiūrėti/trinti žinutes</h3>
-                    <form class="p-2" action="model/del.preke.php" method="post">
-                            <select name="pasirinkimas" class="listas">
-                                <option selected>Pasirink prekę</option>
-                            <?php   //Listas su prekiu pavadinimais
-                                    foreach($prekiuobj as $preke) { ?>
-                                    <option value="<?=$preke['id']?>"><?=$preke['pavadinimas']?></option>
-                            <?php   } ?>
-                            </select>
-                        <button type="submit">ištrinti</button>
-                    </form>
+                    
                 </section>
             </div>
         </div> 

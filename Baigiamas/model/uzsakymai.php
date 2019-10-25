@@ -1,6 +1,6 @@
 <?php
 
-include('login.php');
+include_once('login.php');
 
 function addUzsakymas($adr, $city, $postal, $total, $data, $uzsakov_id) {
     $adr = htmlspecialchars(trim($adr), ENT_QUOTES);

@@ -25,11 +25,11 @@
     <nav class="row">
         <div class="col p-2 mb-3 navigacija">
             <ul class="nav nav-justified">
-                <li class="nav-item"><a href="index.html">apie mus</a></li>
+                <li class="nav-item"><a href="index.php">apie mus</a></li>
                 <li>|</li>
-                <li class="nav-item"><a href="store.html">mūsų produktai</a></li>
+                <li class="nav-item"><a href="store.php">mūsų produktai</a></li>
                 <li>|</li>
-                <li class="nav-item"><a href="contact.html">susisiekite su mumis</a></li>
+                <li class="nav-item"><a href="contact.php">susisiekite su mumis</a></li>
             </ul>
         </div>
     </nav>

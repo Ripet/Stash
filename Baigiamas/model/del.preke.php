@@ -1,5 +1,5 @@
 <?php 
 
-include('prekes.php');
-delPreke($_POST['pasirinkimas']);
-header("Location: ../topsecret.php");
+// include('prekes.php');
+// delPreke($_POST['']);
+// header("Location: ../topsecret.php");

@@ -1,6 +1,6 @@
 <?php
 
-include('login.php');
+include_once('login.php');
 
 function addPreke($name, $price, $amount, $descr, $position) {
     $name = htmlspecialchars(trim($name), ENT_QUOTES);
@@ -50,4 +50,11 @@ function getPrekes($count = 999) {
     if(!$all) {
         echo "error: nepavyko ištraukt prekių" .mysql_error(getConnection()); 
     }
+}
+
+function getPreke($nr) {
+    $get = "SELECT * FROM prekes WHERE id=$nr";
+    $all = mysqli_query(getConnection(), $get);
+    $masyvas = mysqli_fetch_assoc($all);
+    return $masyvas;
 }
