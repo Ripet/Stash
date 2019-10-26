@@ -19,7 +19,7 @@
         </div>
         <div class="col d-flex justify-content-end">
             <button class="knopke"><img class="loginas" src="img/user.svg" alt="prisijungimas"></button>
-            <button class="knopke"><img class="krepselis" src="img/cart.svg" alt="krepselis"></button>
+            <button class="knopke"><a href="cart.php"><img class="krepselis" src="img/cart.svg" alt="krepselis"></a></button>
         </div>
     </header>
     <nav class="row">
@@ -39,8 +39,8 @@
     ?>
     <main class="row flex-row">
         <section class="col">
-            <img class="priekis">
-            <img class="galas">
+            <img class="priekis" src="img/<?=$gautapreke['foto1']?>" width="40%">
+            <img class="galas" src="img/<?=$gautapreke['foto2']?>" width="40%">
         </section>
         <section class="col">
             <div>
@@ -48,13 +48,21 @@
                 <p><?=$gautapreke['aprasymas']?></p>
                 <p><?=$gautapreke['kaina']?> &euro;</p>
             </div>
-            <div>
+            <!-- <div>
                 <span>select color</span>
             </div>
             <div>
+                <div>
+                    <input data-image="grey" type="radio" id="grey" name="color" value="grey">
+                    <label for="grey"><span></span></label>
+                </div>
+                <div>
+                    <input data-image="black" type="radio" id="black" name="color" value="black">
+                    <label for="black"><span></span></label>
+                </div>
+            </div> -->
                 
-            </div>
-            <button>Prideti i krepseli</button>
+                <button type="submit" class="sausainiam" name="<?=$gautapreke['id']?>" onclick="addCookie()">Įdėti į krepšelį</button>
         </section>
     </main>
     <footer class="row footeris">

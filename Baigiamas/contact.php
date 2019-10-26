@@ -19,7 +19,7 @@
         </div>
         <div class="col d-flex justify-content-end">
             <button class="knopke"><img class="loginas" src="img/user.svg" alt="prisijungimas"></button>
-            <button class="knopke"><img class="krepselis" src="img/cart.svg" alt="krepselis"></button>
+            <button class="knopke"><a href="cart.php"><img class="krepselis" src="img/cart.svg" alt="krepselis"></a></button>
         </div>
     </header>
     <nav class="row">

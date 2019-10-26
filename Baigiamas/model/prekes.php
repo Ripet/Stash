@@ -19,7 +19,7 @@ function addPreke($name, $price, $amount, $descr, $position) {
 function delPreke($nr) {
     $nr = htmlspecialchars(trim($nr), ENT_QUOTES);
 
-    $istr = "DELETE FROM prekes WHERE id='$nr' LIMIT 1";
+    $istr = "DELETE prekes, foto FROM prekes JOIN foto ON prekes.id=foto.prek_id WHERE prekes.id=foto.prek_id AND prekes.id=$nr";
     $del = mysqli_query(getConnection(), $istr);
     if(!$del) {
         echo "error: nepavyko ištrinti prekės" .mysql_error(getConnection());
@@ -44,7 +44,7 @@ function updPreke($nr, $name, $price, $amount, $descr, $position) {
 function getPrekes($count = 999) {
     $count = htmlspecialchars(trim($count), ENT_QUOTES);
 
-    $get = "SELECT * FROM prekes LIMIT $count";
+    $get = "SELECT prekes.id, pavadinimas, kaina, kiekis, aprasymas, pozicija, foto1, foto2 FROM prekes, foto WHERE prekes.id=foto.prek_id LIMIT $count";
     $all = mysqli_query(getConnection(), $get);
     return $all;
     if(!$all) {
@@ -53,7 +53,7 @@ function getPrekes($count = 999) {
 }
 
 function getPreke($nr) {
-    $get = "SELECT * FROM prekes WHERE id=$nr";
+    $get = "SELECT prekes.id, pavadinimas, kaina, kiekis, aprasymas, pozicija, foto1, foto2 FROM prekes, foto WHERE prekes.id=foto.prek_id AND prekes.id=$nr";
     $all = mysqli_query(getConnection(), $get);
     $masyvas = mysqli_fetch_assoc($all);
     return $masyvas;

@@ -62,10 +62,6 @@
                         <input type="text" name="prekID" value="" placeholder="Prekės ID duomenų bazėje">
                         <button type="submit">Koreguoti</button>
                     </form>
-                    <form class="p-2" action="model/del.foto.php" method="post">
-                        <input type="text" name="prekID" value="" placeholder="Foto ID duomenų bazėje">
-                        <button type="submit">Trinti</button>
-                    </form>
                 </section>
                 <!-- FOTO EDIT PABAIGA -->
                 <!-- PREKIU EDIT PRADZIA -->
@@ -78,13 +74,13 @@
                             $prekiuobj = getPrekes();
                             ?>
                             <select name="pasirinkimas" id="list-prekes" class="listas" onchange="getPrekFromDb()">
-                                <option selected>Pasirink prekę</option>
+                                <option selected="selected">Pasirink prekę</option>
                             <?php   //Listas su prekiu pavadinimais
                                     foreach($prekiuobj as $preke) { ?>
                                     <option class="dropdn-value" value="<?=$preke['id']?>"><?=$preke['pavadinimas']?></option>
                             <?php   } ?>
                             </select>
-                            <button type="submit">Ištrinti</button>
+                            <button type="submit">Ištrinti prekę su nuotraukomis</button>
                             <div id="ats1"></div>
                         </form>
                         <form class="p-2" action="model/upd.preke.php" method="post">
@@ -118,7 +114,6 @@
                         <input type="text" name="uzsakymoID" value="" placeholder="Užsakymo ID">
                         <input type="text" name="prekesID" value="" placeholder="Prekės ID">
                         <input type="text" name="vnt" value="" placeholder="Prekės vienetai">
-                        <input type="text" name="spalva" value="" placeholder="Prekės spalva">
                         <button type="submit" onclick="">Pridėti</button>
                     </form>
                 </section>
@@ -141,7 +136,6 @@
                         <input type="text" name="uzsakymoID" value="" placeholder="Užsakymo ID">
                         <input type="text" name="prekesID" value="" placeholder="Prekės ID">
                         <input type="text" name="vnt" value="" placeholder="Prekės vienetai">
-                        <input type="text" name="spalva" value="" placeholder="Prekės spalva">
                         <button type="submit" onclick="">Koreguoti</button>
                     </form>
                 </section>

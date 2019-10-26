@@ -1,6 +1,6 @@
 <?php
 
-include('login.php');
+include_once('login.php');
 
 function addFoto($ft1, $ft2, $prek_id) {
     $ft1 = htmlspecialchars(trim($ft1), ENT_QUOTES);
@@ -46,4 +46,11 @@ function getFotos($count = 999) {
     if(!$all) {
         echo "error: nepavyko ištraukt foto" .mysql_error(getConnection()); 
     }
+}
+
+function getFoto($nr) {
+    $get = "SELECT * FROM foto WHERE prek_id=$nr";
+    $all = mysqli_query(getConnection(), $get);
+    $masyvas = mysqli_fetch_assoc($all);
+    return $masyvas;
 }
