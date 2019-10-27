@@ -14,6 +14,8 @@ html, body {
     transform: scalex(-1);
 }
 
+
+
 .titulinis {
     color: #ffffff;
 }
@@ -82,11 +84,16 @@ a, a:hover {
 }
 
 .listas {
-    width: 50%;
+    width: auto;
 }
 
 .pasleptas {
     visibility: hidden;
+}
+
+.komentaro-laukas {
+    width: 80%;
+    height: 80%;
 }
 
 /* H2 pabraukimo pradzia */
@@ -140,3 +147,11 @@ a:hover:after {
 }
 
 /* Animuoto pabraukimo pabaiga */
+
+.nuimt:hover:after {
+    width: 0;
+}
+
+.del-knopke {
+    background-color: #f5c6cc;
+}

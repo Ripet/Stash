@@ -20,12 +20,14 @@ function addUzsakymas($adr, $city, $postal, $total, $data, $uzsakov_id) {
 function delUzsakymas($nr) {
     $nr = htmlspecialchars(trim($nr), ENT_QUOTES);
     
-    $istr = "DELETE FROM uzsakymai WHERE id='$nr' LIMIT 1";
+    $istr = "DELETE uzsakymai, uzsdetales FROM uzsakymai JOIN uzsdetales ON uzsakymai.id=uzsdetales.uzsakymo_id 
+            WHERE uzsakymai.id=uzsdetales.uzsakymo_id AND uzsakymai.id=$nr";
     $del = mysqli_query(getConnection(), $istr);
     if(!$del) {
         echo "error: nepavyko ištrinti užsakymo" .mysql_error(getConnection());
     }
 }
+
 
 function updUzsakymas($nr, $adr, $city, $postal, $total, $data, $uzsakov_id) {
     $nr = htmlspecialchars(trim($nr), ENT_QUOTES);
@@ -52,4 +54,12 @@ function getUzsakymus($count = 999) {
     if(!$all) {
         echo "error: nepavyko ištraukt užsakymų" .mysql_error(getConnection()); 
     }
+}
+
+function getUzsakyma($nr) {
+    $get = "SELECT uzsakymai.id, adresas, miestas, pastokod, totkaina, data, uzsakov_id, prekes_id, vnt 
+            FROM uzsakymai, uzsdetales WHERE uzsakymai.id=uzsdetales.uzsakymo_id AND uzsakymai.id=$nr";
+    $all = mysqli_query(getConnection(), $get);
+    $masyvas = mysqli_fetch_assoc($all);
+    return $masyvas;
 }

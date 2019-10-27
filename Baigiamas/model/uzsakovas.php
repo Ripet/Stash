@@ -1,6 +1,6 @@
 <?php
 
-include('login.php');
+include_once('login.php');
 
 function addUzsakovas($name, $lname, $email, $tel, $adr, $city, $postal) {
     $name = htmlspecialchars(trim($name), ENT_QUOTES);
@@ -38,7 +38,8 @@ function updUzsakovas($nr, $name, $lname, $email, $tel, $adr, $city, $postal) {
     $city = htmlspecialchars(trim($city), ENT_QUOTES);
     $postal = htmlspecialchars(trim($postal), ENT_QUOTES);
 
-    $atn = "UPDATE uzsakovas SET vardas='$name', pavard='$lname', emailas='$email', tel='$tel', adresas='$adr', miestas='$city', pastkod='$postal' WHERE id='$nr' LIMIT 1";
+    $atn = "UPDATE uzsakovas SET vardas='$name', pavard='$lname', emailas='$email', tel='$tel', adresas='$adr', 
+    miestas='$city', pastkod='$postal' WHERE id='$nr' LIMIT 1";
     $up = mysqli_query(getConnection(), $atn);
     if(!$up) {
         echo "error: nepavyko atnaujinti užsakovo" .mysql_error(getConnection()); 
@@ -54,4 +55,19 @@ function getUzsakovus($count = 999) {
     if(!$all) {
         echo "error: nepavyko ištraukt užsakovų" .mysql_error(getConnection()); 
     }
+}
+
+// function getUzsakova($nr) {
+//     $get = "SELECT * FROM uzsakovas WHERE id=$nr";
+//     $all = mysqli_query(getConnection(), $get);
+//     $masyvas = mysqli_fetch_assoc($all);
+//     return $masyvas;
+// }
+
+function getUzsakova($nr) {
+    $get = "SELECT uzsakov_id, vardas, pavard, emailas, tel, uzsakovas.adresas, uzsakovas.miestas, pastkod, uzsakymai.id 
+            FROM uzsakovas, uzsakymai WHERE uzsakovas.id=uzsakymai.uzsakov_id AND uzsakovas.id=$nr";
+    $all = mysqli_query(getConnection(), $get);
+    $masyvas = mysqli_fetch_assoc($all);
+    return $masyvas;
 }

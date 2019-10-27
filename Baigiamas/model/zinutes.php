@@ -1,6 +1,6 @@
 <?php
 
-include('login.php');
+include_once('login.php');
 
 function addZinute($name, $email, $data, $msg) {
     $name = htmlspecialchars(trim($name), ENT_QUOTES);
@@ -35,7 +35,7 @@ function updZinute($nr, $name, $email, $data, $msg) {
     $atn = "UPDATE zinutes SET vardas='$name', email='$email', data='$data', zinute='$msg' WHERE id='$nr' LIMIT 1";
     $up = mysqli_query(getConnection(), $atn);
     if(!$up) {
-        echo "error: nepavyko atnaujinti žinutės" .mysql_error(getConnection()); 
+        echo "error: nepavyko atnaujinti žinutės" .mysql_error(getConnection());
     }
 }
 
@@ -47,6 +47,6 @@ function getZinutes($count = 999) {
     $all = mysqli_query(getConnection(), $get);
     return $all;
     if(!$all) {
-        echo "error: nepavyko ištraukt žinutės" .mysql_error(getConnection()); 
+        echo "error: nepavyko ištraukt žinutės" .mysql_error(getConnection());
     }
 }

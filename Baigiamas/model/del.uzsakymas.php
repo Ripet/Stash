@@ -1,5 +1,5 @@
 <?php 
 
-// include_once('uzsakymai.php');
-// delFoto($_POST['pasirinkimas']);
-// header("Location: ../topsecret.php");
+include_once('uzsakymai.php');
+delUzsakymas($_POST['pasirinkimasDu']);
+header("Location: ../topsecret.php");
