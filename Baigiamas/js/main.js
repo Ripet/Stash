@@ -78,6 +78,30 @@ function getUzsakovusFromDb() {
   });
 }
 
+function getZinutesFromDb() {
+  var zinutesID = $('#list-zinutes option:selected').val();
+  $("#ats4").empty();
+
+  $.ajax({
+    url: "./model/get.zinute.php",    
+    type: "POST",
+    data: {nr: zinutesID}, 
+    success: function(gryzo){
+      console.log("lyg suveike");
+      console.log(gryzo);
+      gryzoPaverstasIJSON = JSON.parse(gryzo);
+      $("#ats4").append('<li class="list-group-item">Žinutės ID: ' + gryzoPaverstasIJSON.id + '</li>', '<li class="list-group-item">Vardas: ' 
+      + gryzoPaverstasIJSON.vardas + '</li>', '<li class="list-group-item">El. paštas: ' + gryzoPaverstasIJSON.email + '</li>', 
+      '<li class="list-group-item">Data: ' + gryzoPaverstasIJSON.data + '</li>', '<li class="list-group-item">Žinutė: ' 
+      + gryzoPaverstasIJSON.zinute);
+    },
+    error: function(e) {
+      $("#ats4").append( "Request failed: " + e );
+      console.log("NESUVEIKE!@@@");
+    }
+  });
+}
+
 //--------------------------------------COOKIES
 
 
@@ -107,7 +131,7 @@ function krepselioBendraSuma() {
       bendraPrekiuSuma += (kaina * kiekis);
   }
   bendraPrekiuSuma = Math.round(bendraPrekiuSuma * 100) / 100; //suapvalina bendra prekiu suma
-  document.getElementsByClassName('bendra-suma')[0].innerText = bendraPrekiuSuma; //paima span elementa ir iraso reiksme i ji
+  document.getElementsByClassName('bendra-suma')[0].value = bendraPrekiuSuma; //paima span elementa ir iraso reiksme i ji
 }
 
 let kiekioLaukelis = document.getElementsByClassName('kiekis');

@@ -11,17 +11,17 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="container-fluid">
-    <header class="row headeris d-flex justify-content-between align-items-center">
-        <div class="col"><img class="searchas" src="img/search.svg" alt="paieska"></div>
-        <a class="nuimt" href="index.php">
+    <header class="row headeris ">
+        <div class="col"></div>
+        <a class="nuimt col d-flex justify-content-center" href="index.php">
             <div class="col d-inline-flex justify-content-center">
                 <img class="logotipas" src="img/logo.svg" alt="logotipas">
                 <h1 class="titulinis">Sėdimųjų <span class="d-flex justify-content-end">rojus</span></h1>
             </div>
         </a>
         <div class="col d-flex justify-content-end">
-            <button class="knopke"><img class="loginas" src="img/user.svg" alt="prisijungimas"></button>
-            <button class="knopke"><a href="cart.php"><img class="krepselis" src="img/cart.svg" alt="krepselis"></a></button>
+            <button class="knopke"><a class="nuimt" href="topsecret.php"><img class="loginas" src="img/user.svg" alt="prisijungimas"></a></button>
+            <button class="knopke"><a class="nuimt" href="cart.php"><img class="krepselis" src="img/cart.svg" alt="krepselis"></a></button>
         </div>
     </header>
     <nav class="row">

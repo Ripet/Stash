@@ -63,3 +63,4 @@ function getUzsakyma($nr) {
     $masyvas = mysqli_fetch_assoc($all);
     return $masyvas;
 }
+

@@ -57,13 +57,6 @@ function getUzsakovus($count = 999) {
     }
 }
 
-// function getUzsakova($nr) {
-//     $get = "SELECT * FROM uzsakovas WHERE id=$nr";
-//     $all = mysqli_query(getConnection(), $get);
-//     $masyvas = mysqli_fetch_assoc($all);
-//     return $masyvas;
-// }
-
 function getUzsakova($nr) {
     $get = "SELECT uzsakov_id, vardas, pavard, emailas, tel, uzsakovas.adresas, uzsakovas.miestas, pastkod, uzsakymai.id 
             FROM uzsakovas, uzsakymai WHERE uzsakovas.id=uzsakymai.uzsakov_id AND uzsakovas.id=$nr";

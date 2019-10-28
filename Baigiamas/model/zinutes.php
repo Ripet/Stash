@@ -50,3 +50,10 @@ function getZinutes($count = 999) {
         echo "error: nepavyko ištraukt žinutės" .mysql_error(getConnection());
     }
 }
+
+function getZinute($nr) {
+    $get = "SELECT * FROM zinutes WHERE id=$nr";
+    $all = mysqli_query(getConnection(), $get);
+    $masyvas = mysqli_fetch_assoc($all);
+    return $masyvas;
+}

@@ -8,13 +8,10 @@ html, body {
     height: 100%;
     width: 100%;
 }
-
 .logotipas {
     max-height: 100px;
     transform: scalex(-1);
 }
-
-
 
 .titulinis {
     color: #ffffff;
@@ -77,6 +74,10 @@ a, a:hover {
 
 .top-adm, .top-adm:hover {
     color: black;
+}
+
+.top-adm:after {
+    background: black;
 }
 
 .pnlis {
@@ -154,4 +155,23 @@ a:hover:after {
 
 .del-knopke {
     background-color: #f5c6cc;
+}
+
+/* .store-item {
+    background-color: #5d6438;
+} */
+
+.prekes-img {
+    position: relative;
+    display: inline-block;
+}
+.prekes-img .galas {
+    display: none;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 99;
+}
+.prekes-img:hover .galas {
+    display: block;
 }
