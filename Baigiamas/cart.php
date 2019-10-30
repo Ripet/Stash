@@ -27,7 +27,7 @@
                 <input class="bendra-suma" type="number" step="0.01" name="total">
             </div>
         </div>
-        <div class="col">
+        <div class="col d-flex flex-column">
             <input class="m-1" type="text" name="vardas" value="" placeholder="Jūsų vardas">
             <input class="m-1" type="text" name="pavarde" value="" placeholder="Jūsų pavardė">
             <input class="m-1" type="text" name="email" value="" placeholder="Jūsų el. paštas">
