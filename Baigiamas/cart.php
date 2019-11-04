@@ -8,23 +8,23 @@
         <div class="row">    
             <table id="prekiulentele" class="table table-striped">
                 <tbody class="krepselio-konteineris">
-        <?php   foreach($_COOKIE as $id => $name) {
-                    $preke = getPreke($id); ?>    
+          <?php foreach($_COOKIE as $id => $name) {
+                    $preke = getPreke($id); ?>
                     <tr class="krepselio-eilute">
-                        <th scope="row"><?=$preke['foto1']?></th>
+                        <th scope="row"><img id="cartphoto" class="" src="img/<?=$preke['foto1']?>"></th>
                         <td><?=$preke['pavadinimas']?></td>
                         <td class="kaina"><?=$preke['kaina']?></td>
-                        <td><input class="kiekis" name="kiekis" type="number" value="1"></td>
-                        <td><button class="istrint-preke" type="submit" name="<?=$id?>" onclick="delCookie()">Pašalinti</button></td>
+                        <td><input class="kiekis" name="kiekis[]" type="number" value="1"></td>
+                        <td><button class="istrint-preke" type="submit" formaction="model/remove.fromCart.php" name="<?=$id?>" onclick="delCookie()">Pašalinti</button></td>
                     </tr>
-                    <input type="hidden" name="prekesID" value="<?=$preke['id']?>">
-        <?php   }  
-                ?>
+                    <input type="hidden" name="prekesID[]" value="<?=$preke['id']?>">
+          <?php } ?>
                 </tbody>
             </table>
             <div class="totals">
                 <span>Iš viso:</span>
                 <input class="bendra-suma" type="number" step="0.01" name="total">
+                <span>&euro;</span>
             </div>
         </div>
         <div class="col d-flex flex-column">

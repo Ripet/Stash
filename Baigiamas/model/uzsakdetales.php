@@ -10,7 +10,7 @@ function addUzsakDetal($uzsak_id, $prek_id, $vnt) {
     $add = "INSERT INTO uzsdetales VALUES (NULL, '$uzsak_id', '$prek_id', '$vnt')";
     $cr = mysqli_query(getConnection(), $add);
     if(!$cr) {
-        echo "error: nepavyko sukurti užsakymo detalių" .mysql_error(getConnection()); 
+        echo "error: nepavyko sukurti užsakymo detalių" .mysqli_error(getConnection()); 
     }
 }
 
@@ -20,7 +20,7 @@ function delUzsakDetal($nr) {
     $istr = "DELETE FROM uzsdetales WHERE id='$nr' LIMIT 1";
     $del = mysqli_query(getConnection(), $istr);
     if(!$del) {
-        echo "error: nepavyko ištrinti užsakymo detalių" .mysql_error(getConnection());
+        echo "error: nepavyko ištrinti užsakymo detalių" .mysqli_error(getConnection());
     }
 }
 
@@ -33,7 +33,7 @@ function updUzsakDetal($nr, $uzsak_id, $prek_id, $vnt) {
     $atn = "UPDATE uzsdetales SET uzsakymo_id='$uzsak_id', prekes_id='$prek_id', vnt='$vnt' WHERE id='$nr' LIMIT 1";
     $up = mysqli_query(getConnection(), $atn);
     if(!$up) {
-        echo "error: nepavyko atnaujinti užsakymo detalių" .mysql_error(getConnection()); 
+        echo "error: nepavyko atnaujinti užsakymo detalių" .mysqli_error(getConnection()); 
     }
 }
 
@@ -44,6 +44,6 @@ function getUzsakDetal($count = 999) {
     $all = mysqli_query(getConnection(), $get);
     return $all;
     if(!$all) {
-        echo "error: nepavyko ištraukt užsakymo detalių" .mysql_error(getConnection()); 
+        echo "error: nepavyko ištraukt užsakymo detalių" .mysqli_error(getConnection()); 
     }
 }

@@ -13,7 +13,7 @@ function addUzsakymas($adr, $city, $postal, $total, $data, $uzsakov_id) {
     $add = "INSERT INTO uzsakymai VALUES (NULL, '$adr', '$city', '$postal', '$total', '$data', '$uzsakov_id')";
     $cr = mysqli_query(getConnection(), $add);
     if(!$cr) {
-        echo "error: nepavyko sukurti užsakymo" .mysql_error(getConnection()); 
+        echo "error: nepavyko sukurti užsakymo" .mysqli_error(getConnection()); 
     }
 }
 
@@ -24,7 +24,7 @@ function delUzsakymas($nr) {
             WHERE uzsakymai.id=uzsdetales.uzsakymo_id AND uzsakymai.id=$nr";
     $del = mysqli_query(getConnection(), $istr);
     if(!$del) {
-        echo "error: nepavyko ištrinti užsakymo" .mysql_error(getConnection());
+        echo "error: nepavyko ištrinti užsakymo" .mysqli_error(getConnection());
     }
 }
 
@@ -41,7 +41,7 @@ function updUzsakymas($nr, $adr, $city, $postal, $total, $data, $uzsakov_id) {
     $atn = "UPDATE uzsakymai SET adresas='$adr', miestas='$city', pastokod='$postal', totkaina='$total', data='$data', uzsakov_id='$uzsakov_id' WHERE id='$nr' LIMIT 1";
     $up = mysqli_query(getConnection(), $atn);
     if(!$up) {
-        echo "error: nepavyko atnaujinti užsakymo" .mysql_error(getConnection()); 
+        echo "error: nepavyko atnaujinti užsakymo" .mysqli_error(getConnection()); 
     }
 }
 
@@ -52,7 +52,7 @@ function getUzsakymus($count = 999) {
     $all = mysqli_query(getConnection(), $get);
     return $all;
     if(!$all) {
-        echo "error: nepavyko ištraukt užsakymų" .mysql_error(getConnection()); 
+        echo "error: nepavyko ištraukt užsakymų" .mysqli_error(getConnection()); 
     }
 }
 

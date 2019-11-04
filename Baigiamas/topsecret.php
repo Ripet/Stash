@@ -8,16 +8,21 @@
     <meta name="description" content="Geriausios ir pigiausios kėdės">
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="container-fluid">
+    <?php include('model/check.session.php'); ?>
     <header class="row headeris d-flex justify-content-center">
+        <div class="col"></div>
         <a class="nuimt" href="index.php">
             <div class="col d-inline-flex justify-content-center">
                 <img class="logotipas" src="img/logo.svg" alt="logotipas">
                 <h1 class="titulinis">Sėdimųjų <span class="d-flex justify-content-end">adminas</span></h1>
             </div>
         </a>
+        <div class="col d-flex justify-content-end">
+            <button class="knopke"><a class="nuimt" href="model/admin.logout.php"><img class="krepselis" src="img/logout.svg" alt="išeiti"></a></button>
+        </div>
     </header>
     <main class="row d-flex flex-column">
         <div class="col">

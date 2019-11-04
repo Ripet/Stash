@@ -12,7 +12,7 @@ function addPreke($name, $price, $amount, $descr, $position) {
     $add = "INSERT INTO prekes VALUES (NULL, '$name', '$price', '$amount', '$descr', '$position')";
     $cr = mysqli_query(getConnection(), $add);
     if(!$cr) {
-        echo "error: nepavyko sukurti prekės" .mysql_error(getConnection()); 
+        echo "error: nepavyko sukurti prekės" .mysqli_error(getConnection()); 
     }
 }
 
@@ -22,7 +22,7 @@ function delPreke($nr) {
     $istr = "DELETE prekes, foto FROM prekes JOIN foto ON prekes.id=foto.prek_id WHERE prekes.id=foto.prek_id AND prekes.id=$nr";
     $del = mysqli_query(getConnection(), $istr);
     if(!$del) {
-        echo "error: nepavyko ištrinti prekės" .mysql_error(getConnection());
+        echo "error: nepavyko ištrinti prekės" .mysqli_error(getConnection());
     }
 }
 
@@ -37,7 +37,7 @@ function updPreke($nr, $name, $price, $amount, $descr, $position) {
     $atn = "UPDATE prekes SET pavadinimas='$name', kaina='$price', kiekis='$amount', aprasymas='$descr', pozicija='$position'  WHERE id='$nr' LIMIT 1";
     $up = mysqli_query(getConnection(), $atn);
     if(!$up) {
-        echo "error: nepavyko atnaujinti prekės" .mysql_error(getConnection()); 
+        echo "error: nepavyko atnaujinti prekės" .mysqli_error(getConnection()); 
     }
 }
 
@@ -48,7 +48,7 @@ function getPrekes($count = 999) {
     $all = mysqli_query(getConnection(), $get);
     return $all;
     if(!$all) {
-        echo "error: nepavyko ištraukt prekių" .mysql_error(getConnection()); 
+        echo "error: nepavyko ištraukt prekių" .mysqli_error(getConnection()); 
     }
 }
 

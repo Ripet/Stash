@@ -12,7 +12,7 @@
             <select name="pasirinkimasTrys" id="list-uzsakovai" class="listas" onchange="getUzsakovusFromDb()">
                 <option selected>Pasirink užsakovą</option>
             <?php   foreach($uzsakovoObj as $uzsakym) { ?>
-                    <option class="dropdn-value" value="<?=$uzsakym['id']?>">ID: <?=$uzsakym['id']?>  <?=$uzsakym['vardas']?>  <?=$uzsakym['pavard']?></option>
+                    <option class="dropdn-value" value="<?=$uzsakym['id']?>">ID: <?=$uzsakym['id']?> | <?=$uzsakym['vardas']?>  <?=$uzsakym['pavard']?></option>
             <?php   } ?>
             </select>
             <button class="btn-outline-danger m-1" type="submit">Ištrinti užsakovą</button>
@@ -50,7 +50,7 @@
             <select name="pasirinkimasKeturi" id="list-zinutes" class="listas" onchange="getZinutesFromDb()">
                 <option selected>Pasirink žinutę</option>
             <?php   foreach($zinuciuObj as $uzsakym) { ?>
-                    <option class="dropdn-value" value="<?=$uzsakym['id']?>">ID:  <?=$uzsakym['vardas']?>  <?=$uzsakym['email']?></option>
+                    <option class="dropdn-value" value="<?=$uzsakym['id']?>"><?=$uzsakym['vardas']?> | <?=$uzsakym['email']?></option>
             <?php   } ?>
             </select>
             <button class="btn-outline-danger m-1" type="submit">Ištrinti</button>

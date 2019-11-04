@@ -157,9 +157,6 @@ a:hover:after {
     background-color: #f5c6cc;
 }
 
-/* .store-item {
-    background-color: #5d6438;
-} */
 
 .prekes-img {
     position: relative;
@@ -174,4 +171,8 @@ a:hover:after {
 }
 .prekes-img:hover .galas {
     display: block;
+}
+
+#cartphoto {
+    width: 100px;
 }

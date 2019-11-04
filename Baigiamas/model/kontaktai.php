@@ -13,7 +13,7 @@ function updKontaktus($pavad, $adresas, $postal, $tel, $bankoSas) {
     tel='$tel', bankSasNr='$bankoSas' WHERE id=1";
     $up = mysqli_query(getConnection(), $atn);
     if(!$up) {
-        echo "error: nepavyko atnaujinti užsakymo" .mysql_error(getConnection()); 
+        echo "error: nepavyko atnaujinti užsakymo" .mysqli_error(getConnection()); 
     }
 }
 

@@ -18,7 +18,7 @@
             <ul id="ats1" class="list-group list-group-horizontal col d-flex align-items-stretch text-center flex-wrap"></ul>
     </section>
     <section class="pnlis m-2 row"> 
-        <form class=" col d-flex flex-column" action="model/create.preke.php" method="post">
+        <form class="p-2 col d-flex flex-column" action="model/create.preke.php" method="post">
             <h3>Pridėti prekes</h3>
             <textarea class="m-1" type="text" name="apr" value="" placeholder="Prekės aprašymas" rows="5" cols="60"></textarea>
             <input class="m-1" type="text" name="pav" value="" placeholder="Prekės pavadinimas">

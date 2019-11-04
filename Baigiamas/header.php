@@ -8,7 +8,7 @@
     <meta name="description" content="Geriausios ir pigiausios kėdės">
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="container-fluid">
     <header class="row headeris ">
@@ -20,7 +20,34 @@
             </div>
         </a>
         <div class="col d-flex justify-content-end">
-            <button class="knopke"><a class="nuimt" href="topsecret.php"><img class="loginas" src="img/user.svg" alt="prisijungimas"></a></button>
+            <form action="model/admin.login.php" method="post">
+                <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header text-center">
+                            <h4 class="modal-title w-100 font-weight-bold">Prisijungimas</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body mx-3">
+                            <div class="md-form mb-2">
+                                <i class="fas fa-user prefix grey-text"></i>
+                                <input type="text" id="orangeForm-name" name="vardas" class="form-control validate">
+                                <label data-error="wrong" data-success="right" for="orangeForm-name">Prisijungimo vardas</label>
+                            </div>
+                            <div class="md-form mb-2">
+                                <i class="fas fa-lock prefix grey-text"></i>
+                                <input type="password" id="orangeForm-pass" name="slaptazodis" class="form-control validate">
+                                <label data-error="wrong" data-success="right" for="orangeForm-pass">Slaptažodis</label>
+                            </div>
+                        </div>
+                            <div class="modal-footer d-flex justify-content-center">
+                                <button class="btn btn-deep-orange" type="submit">Prisijungti</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="knopke"><a class="nuimt" data-toggle="modal" data-target="#modalRegisterForm"><img class="loginas" src="img/user.svg" alt="prisijungimas"></a></button>
+            </form>
             <button class="knopke"><a class="nuimt" href="cart.php"><img class="krepselis" src="img/cart.svg" alt="krepselis"></a></button>
         </div>
     </header>

@@ -11,7 +11,7 @@ function addZinute($name, $email, $data, $msg) {
     $add = "INSERT INTO zinutes VALUES (NULL, '$name', '$email', '$data', '$msg')";
     $cr = mysqli_query(getConnection(), $add);
     if(!$cr) {
-        echo "error: nepavyko sukurti žinutės" .mysql_error(getConnection()); 
+        echo "error: nepavyko sukurti žinutės" .mysqli_error(getConnection()); 
     }
 }
 
@@ -21,7 +21,7 @@ function delZinute($nr) {
     $istr = "DELETE FROM zinutes WHERE id='$nr' LIMIT 1";
     $del = mysqli_query(getConnection(), $istr);
     if(!$del) {
-        echo "error: nepavyko ištrinti žinutės" .mysql_error(getConnection());
+        echo "error: nepavyko ištrinti žinutės" .mysqli_error(getConnection());
     }
 }
 
@@ -35,7 +35,7 @@ function updZinute($nr, $name, $email, $data, $msg) {
     $atn = "UPDATE zinutes SET vardas='$name', email='$email', data='$data', zinute='$msg' WHERE id='$nr' LIMIT 1";
     $up = mysqli_query(getConnection(), $atn);
     if(!$up) {
-        echo "error: nepavyko atnaujinti žinutės" .mysql_error(getConnection());
+        echo "error: nepavyko atnaujinti žinutės" .mysqli_error(getConnection());
     }
 }
 
@@ -47,7 +47,7 @@ function getZinutes($count = 999) {
     $all = mysqli_query(getConnection(), $get);
     return $all;
     if(!$all) {
-        echo "error: nepavyko ištraukt žinutės" .mysql_error(getConnection());
+        echo "error: nepavyko ištraukt žinutės" .mysqli_error(getConnection());
     }
 }
 

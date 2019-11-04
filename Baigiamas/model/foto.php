@@ -10,7 +10,7 @@ function addFoto($ft1, $ft2, $prek_id) {
     $add = "INSERT INTO foto VALUES (NULL, '$ft1', '$ft2', '$prek_id')";
     $cr = mysqli_query(getConnection(), $add);
     if(!$cr) {
-        echo "error: nepavyko pridėti foto" .mysql_error(getConnection()); 
+        echo "error: nepavyko pridėti foto" .mysqli_error(getConnection()); 
     }
 }
 
@@ -20,7 +20,7 @@ function delFoto($nr) {
     $istr = "DELETE FROM foto WHERE id='$nr' LIMIT 1";
     $del = mysqli_query(getConnection(), $istr);
     if(!$del) {
-        echo "error: nepavyko ištrinti foto" .mysql_error(getConnection());
+        echo "error: nepavyko ištrinti foto" .mysqli_error(getConnection());
     }
 }
 
@@ -33,7 +33,7 @@ function updFoto($nr, $ft1, $ft2, $prek_id) {
     $atn = "UPDATE foto SET foto1='$ft1', foto2='$ft2', prek_id='$prek_id' WHERE id='$nr' LIMIT 1";
     $up = mysqli_query(getConnection(), $atn);
     if(!$up) {
-        echo "error: nepavyko atnaujinti foto" .mysql_error(getConnection()); 
+        echo "error: nepavyko atnaujinti foto" .mysqli_error(getConnection()); 
     }
 }
 
@@ -44,7 +44,7 @@ function getFotos($count = 999) {
     $all = mysqli_query(getConnection(), $get);
     return $all;
     if(!$all) {
-        echo "error: nepavyko ištraukt foto" .mysql_error(getConnection()); 
+        echo "error: nepavyko ištraukt foto" .mysqli_error(getConnection()); 
     }
 }
 
