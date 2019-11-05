@@ -35,18 +35,18 @@ function getUzsakymusFromDb() {
     success: function(gryzo){
       console.log("lyg suveike");
       console.log(gryzo);
-      gryzoPaverstasIJSON = JSON.parse(gryzo);
-      $("#ats2").append('<li class="list-group-item">Užsakymo ID: ' + gryzoPaverstasIJSON.id + '</li>', '<li class="list-group-item">Adresas: ' 
-      + gryzoPaverstasIJSON.adresas + '</li>', '<li class="list-group-item">Miestas: ' + gryzoPaverstasIJSON.miestas + '</li>', 
-      '<li class="list-group-item">Pašto kodas: ' + gryzoPaverstasIJSON.pastokod + '</li>', '<li class="list-group-item">Bendra suma: ' 
-      + gryzoPaverstasIJSON.totkaina + '</li>', '<li class="list-group-item">Užsakymo data: ' + gryzoPaverstasIJSON.data + '</li>', 
-      '<li class="list-group-item">Užsakovo ID: ' + gryzoPaverstasIJSON.uzsakov_id + '</li>', '<li class="list-group-item">Prekės ID: ' 
-      + gryzoPaverstasIJSON.prekes_id + '</li>', '<li class="list-group-item">Prekės vienetai: ' + gryzoPaverstasIJSON.vnt + '</li>',
-      );
-    },
-    error: function(e) {
-      $("#ats2").append( "Request failed: " + e );
-      console.log("NESUVEIKE!@@@");
+      // gryzoPaverstasIJSON = JSON.parse(gryzo);
+
+    //   $("#ats2").append('<li class="list-group-item">Užsakymo ID: ' + gryzoPaverstasIJSON.id + '</li>', '<li class="list-group-item">Adresas: ' 
+    //   + gryzoPaverstasIJSON.adresas + '</li>', '<li class="list-group-item">Miestas: ' + gryzoPaverstasIJSON.miestas + '</li>', 
+    //   '<li class="list-group-item">Pašto kodas: ' + gryzoPaverstasIJSON.pastokod + '</li>', '<li class="list-group-item">Bendra suma: ' 
+    //   + gryzoPaverstasIJSON.totkaina + '</li>', '<li class="list-group-item">Užsakymo data: ' + gryzoPaverstasIJSON.data + '</li>', 
+    //   '<li class="list-group-item">Užsakovo ID: ' + gryzoPaverstasIJSON.uzsakov_id + '</li>', '<li class="list-group-item">Prekės ID: ' 
+    //   + gryzoPaverstasIJSON.uzsakov_id + '</li>', '<li class="list-group-item">Prekės vienetai: ' + gryzoPaverstasIJSON.vnt + '</li>');
+    // },
+    // error: function(e) {
+    //   $("#ats2").append( "Request failed: " + e );
+    //   console.log("NESUVEIKE!@@@");
     }
   });
 }
@@ -68,8 +68,7 @@ function getUzsakovusFromDb() {
       '<li class="list-group-item">El. paštas: ' + gryzoPaverstasIJSON.emailas + '</li>', '<li class="list-group-item">Tel: ' 
       + gryzoPaverstasIJSON.tel + '</li>', '<li class="list-group-item">Adresas: ' + gryzoPaverstasIJSON.adresas + '</li>', 
       '<li class="list-group-item">Miestas: ' + gryzoPaverstasIJSON.miestas + '</li>', '<li class="list-group-item">Pašto kodas: ' 
-      + gryzoPaverstasIJSON.pastkod + '</li>', '<li class="list-group-item">Užsakymo ID: ' + gryzoPaverstasIJSON.id + '</li>',
-      );
+      + gryzoPaverstasIJSON.pastkod + '</li>', '<li class="list-group-item">Užsakymo ID: ' + gryzoPaverstasIJSON.id + '</li>');
     },
     error: function(e) {
       $("#ats3").append( "Request failed: " + e );
@@ -97,6 +96,29 @@ function getZinutesFromDb() {
     },
     error: function(e) {
       $("#ats4").append( "Request failed: " + e );
+      console.log("NESUVEIKE!@@@");
+    }
+  });
+}
+
+function getDarbuotojusDb() {
+  var darbuotojoID = $('#list-darbuotojai option:selected').val();
+  $("#ats5").empty();
+
+  $.ajax({
+    url: "./model/get.darbuotoja.php",    
+    type: "POST",
+    data: {nr: darbuotojoID}, 
+    success: function(gryzo){
+      console.log("lyg suveike");
+      console.log(gryzo);
+      gryzoPaverstasIJSON = JSON.parse(gryzo);
+      $("#ats5").append('<li class="list-group-item"><img width=100px; src="./' + gryzoPaverstasIJSON.nuotrauka + '"></li>', '<li class="list-group-item">Darbuotojo ID: ' 
+      + gryzoPaverstasIJSON.id + '</li>', '<li class="list-group-item">Vardas: ' + gryzoPaverstasIJSON.vardas + '</li>', '<li class="list-group-item">Pavarde: ' 
+      + gryzoPaverstasIJSON.pavarde + '</li>', '<li class="list-group-item">Aprašymas: ' + gryzoPaverstasIJSON.aprasymas + '</li>');
+    },
+    error: function(e) {
+      $("#ats5").append( "Request failed: " + e );
       console.log("NESUVEIKE!@@@");
     }
   });

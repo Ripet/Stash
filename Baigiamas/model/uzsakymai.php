@@ -60,7 +60,6 @@ function getUzsakyma($nr) {
     $get = "SELECT uzsakymai.id, adresas, miestas, pastokod, totkaina, data, uzsakov_id, prekes_id, vnt 
             FROM uzsakymai, uzsdetales WHERE uzsakymai.id=uzsdetales.uzsakymo_id AND uzsakymai.id=$nr";
     $all = mysqli_query(getConnection(), $get);
-    $masyvas = mysqli_fetch_assoc($all);
-    return $masyvas;
+    return $all;
 }
 
