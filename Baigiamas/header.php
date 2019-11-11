@@ -10,16 +10,18 @@
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="container-fluid">
-    <header class="row headeris ">
-        <div class="col"></div>
-        <a class="nuimt col d-flex justify-content-center" href="index.php">
-            <div class="col d-inline-flex justify-content-center">
-                <img class="logotipas" src="img/logo.svg" alt="logotipas">
-                <h1 class="titulinis">Sėdimųjų <span class="d-flex justify-content-end">rojus</span></h1>
-            </div>
+<body class="container-fluid d-flex flex-column">
+    <header class="row headeris">
+        <div class="col-7 d-flex justify-content-end">
+            <a class="nuimt" href="index.php">
+                <div class="col d-inline-flex justify-content-center">
+                    <img class="logotipas" src="img/logo.svg" alt="logotipas">
+                    <h1 class="titulinis">Sėdimųjų <span class="d-flex justify-content-end">rojus</span></h1>
+                </div>
+            </a>
+        </div>
         </a>
-        <div class="col d-flex justify-content-end">
+        <div class="col-5 d-flex justify-content-end">
             <form action="model/admin.login.php" method="post">
                 <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"aria-hidden="true">
                     <div class="modal-dialog" role="document">

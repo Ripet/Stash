@@ -35,7 +35,7 @@
             <input class="m-1" type="text" name="adresas" value="" placeholder="Jūsų adresas">
             <input class="m-1" type="text" name="miestas" value="" placeholder="Jūsų miestas">
             <input class="m-1" type="text" name="pastkod" value="" placeholder="Jūsų pašto kodas">
-            <button type="submit">Pirkti</button>
+            <button type="submit" onclick="deleteAllCookies()">Pirkti</button>
         </div>
     </form>
     <script>
