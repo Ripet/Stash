@@ -31,6 +31,9 @@ html, body {
 
 .footeris {
     background-color: #222222;
+    /* position: absolute;
+    bottom: 0;
+    width: 100%; */
 }
 
 body {
@@ -175,4 +178,13 @@ a:hover:after {
 
 #cartphoto {
     width: 100px;
+}
+
+/* .darbuotoju-foto {
+    height: 200px;
+    width: 200px;
+} */
+
+.seselis {
+    box-shadow: 0 4px 2px -2px gray;
 }

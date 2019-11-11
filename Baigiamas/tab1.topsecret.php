@@ -1,4 +1,5 @@
 <?php
+    include_once('model/check.session.php');
     include_once('model/prekes.php');
     $prekiuobj = getPrekes();
 ?>
