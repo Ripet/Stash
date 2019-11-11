@@ -4,7 +4,7 @@
 ?>
 
 </div>    
-    <footer class="row footeris  mt-auto">
+    <footer class="row footeris mt-5 p-2">
         <div class="col kontaktai d-flex justify-content-start align align-items-center">
             <ul class="list-unstyled adresas">
                 <li><?=$kon['pavadinimas']?></li>

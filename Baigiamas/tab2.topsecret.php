@@ -1,5 +1,4 @@
 <?php
-    include_once('model/check.session.php');
     include_once('model/uzsakymai.php');
     $uzsakymuObj = getUzsakymus();
 ?>

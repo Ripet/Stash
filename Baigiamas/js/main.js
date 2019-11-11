@@ -133,15 +133,8 @@ function addCookie() {
 
 function delCookie() {
   let cookieId = document.querySelector('.istrint-preke').getAttribute('name');
-  document.cookie = cookieId + "=id; expires=Thu, 01 Jan 1970 00:00:01 GMT";
-}
-
-function deleteAllCookies() {
-  let cookieId = document.cookie.split(';');
-
-  for(let i = 0; i < cookieId.length; i++) {
-    document.cookie = cookieId[i] + "; expires=Thu, 01 Jan 1970 00:00:01 GMT";
-  }
+  document.cookie = cookieId + "=i; expires=Thu, 01 Jan 1970 00:00:01 GMT";
+  setTimeout("location.reload(true);",1500)
 }
 
 //--------------------------------------CART
