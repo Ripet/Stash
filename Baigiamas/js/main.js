@@ -34,19 +34,21 @@ function getUzsakymusFromDb() {
     data: {nr: uzsakymoID}, 
     success: function(gryzo){
       console.log("lyg suveike");
-      console.log(gryzo);
-      // gryzoPaverstasIJSON = JSON.parse(gryzo);
-
-    //   $("#ats2").append('<li class="list-group-item">Užsakymo ID: ' + gryzoPaverstasIJSON.id + '</li>', '<li class="list-group-item">Adresas: ' 
-    //   + gryzoPaverstasIJSON.adresas + '</li>', '<li class="list-group-item">Miestas: ' + gryzoPaverstasIJSON.miestas + '</li>', 
-    //   '<li class="list-group-item">Pašto kodas: ' + gryzoPaverstasIJSON.pastokod + '</li>', '<li class="list-group-item">Bendra suma: ' 
-    //   + gryzoPaverstasIJSON.totkaina + '</li>', '<li class="list-group-item">Užsakymo data: ' + gryzoPaverstasIJSON.data + '</li>', 
-    //   '<li class="list-group-item">Užsakovo ID: ' + gryzoPaverstasIJSON.uzsakov_id + '</li>', '<li class="list-group-item">Prekės ID: ' 
-    //   + gryzoPaverstasIJSON.uzsakov_id + '</li>', '<li class="list-group-item">Prekės vienetai: ' + gryzoPaverstasIJSON.vnt + '</li>');
-    // },
-    // error: function(e) {
-    //   $("#ats2").append( "Request failed: " + e );
-    //   console.log("NESUVEIKE!@@@");
+      gryzoPaverstasIJSON = JSON.parse(gryzo);
+      
+    for(var i = 0; i < gryzoPaverstasIJSON.data.length; i++) {
+      $("#ats2").append('<li class="list-group-item">Užsakymo ID: ' + gryzoPaverstasIJSON.data[i]['id'] + '</li>', '<li class="list-group-item">Adresas: ' 
+      + gryzoPaverstasIJSON.data[i]['adresas'] + '</li>', '<li class="list-group-item">Miestas: ' + gryzoPaverstasIJSON.data[i]['miestas'] + '</li>', 
+      '<li class="list-group-item">Pašto kodas: ' + gryzoPaverstasIJSON.data[i]['pastokod'] + '</li>', '<li class="list-group-item">Bendra suma: ' 
+      + gryzoPaverstasIJSON.data[i]['totkaina'] + '</li>', '<li class="list-group-item">Užsakymo data: ' + gryzoPaverstasIJSON.data[i]['data'] + '</li>', 
+      '<li class="list-group-item">Užsakovo ID: ' + gryzoPaverstasIJSON.data[i]['uzsakov_id'] + '</li>', '<li class="list-group-item">Prekės ID: ' 
+      + gryzoPaverstasIJSON.data[i]['prekes_id'] + '</li>', '<li class="list-group-item">Prekės vienetai: ' + gryzoPaverstasIJSON.data[i]['vnt'] + '</li>');
+    }
+  
+    },
+    error: function(e) {
+      $("#ats2").append( "Request failed: " + e );
+      console.log("NESUVEIKE!@@@");
     }
   });
 }

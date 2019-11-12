@@ -180,11 +180,7 @@ a:hover:after {
     width: 100px;
 }
 
-/* .darbuotoju-foto {
-    height: 200px;
-    width: 200px;
-} */
-
-.seselis {
+.seselis{
     box-shadow: 0 4px 2px -2px gray;
+    z-index: -1;
 }
