@@ -1,0 +1,53 @@
+<section class="todoapp">
+
+    <header class="header">
+      <h1>Prekių listas</h1>
+    </header>
+  
+    <section class="main">
+        <form action="">
+            <input class="new-preke" placeholder="Pavadinimas" [(ngModel)]="newPreke.name" name="name"> <!--NgModel importuot reik i app.module.ts, kad veiktu ngModel-->
+            <input class="new-preke" placeholder="Kiekis" [(ngModel)]="newPreke.amount" name="amount">
+            <input class="new-preke" placeholder="Kaina" [(ngModel)]="newPreke.price" name="price">
+            <button type="submit" (click)="addPreke()">Pridėti prekę</button>
+        </form>
+
+        <ul class="prekes-list">
+            <li *ngFor="let preke of prekes" [ngClass]="{completed: preke.pasirinkta, editing: preke.editing}">
+                <input class="toggle" type="checkbox" [checked]="preke.pasirinkta" (click)="togglePreke(preke)">
+                <input class="edit" type="number" #updatedID [value]="preke.id" (blur)="updateId(preke, updatedID.value)" (keyup.escape)="preke.editing = false" (keyup.enter)="updateId(preke, updatedID.value)">
+                <input class="edit" #updatedPreke [value]="preke.name" (blur)="updateName(preke, updatedPreke.value)" (keyup.escape)="preke.editing = false" (keyup.enter)="updateName(preke, updatedPreke.value)">
+                <input class="edit" type="number" #updatedAmount [value]="preke.amount" (blur)="updateAmount(preke, updatedAmount.value)" (keyup.escape)="preke.editing = false" (keyup.enter)="updateAmount(preke, updatedAmount.value)">
+                <input class="edit" type="number" #updatedPrice [value]="preke.price" (blur)="updatePrice(preke, updatedPrice.value)" (keyup.escape)="preke.editing = false" (keyup.enter)="updatePrice(preke, updatedPrice.value)">
+                <button class="destroy" (click)="delPreke(preke)"> X </button>
+                <div>
+                    <!-- <label (dblclick)="preke.editing = true">{{preke.id}}</label> -->
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <span class="todo-count"><strong>{{activeTasks}}</strong> items left</span>
+        <ul class="filters">
+            <li>
+                <a [routerLink]="['/all']" [class.selected]="path === 'all'">Visos</a>
+            </li>
+            <li>
+                <a [routerLink]="['/active']" [class.selected]="path === 'active'">Aktyvios</a>
+            </li>
+            <li>
+                <a [routerLink]="['/completed']" [class.selected]="path === 'completed'">Pažymėtos</a>
+            </li>
+        </ul>
+        <button class="clear-completed" (click)="deleteMarked()">Ištrinti pažymėtus</button>
+    </section>
+  
+    <footer class="footer">
+        <ul *ngFor="let preke of prekes">
+            <li>
+                {{ preke.id }} | {{ preke.name }},  {{ preke.amount }} vnt,  {{ preke.price }} &euro;.
+            </li>
+        </ul>
+    </footer>
+</section>
